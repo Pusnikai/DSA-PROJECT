@@ -9,6 +9,8 @@ Ayaan Bajwa 100864399
 
 import csv
 import networkx as nx
+import matplotlib.pyplot as plt
+
 
 def load_csv(filepath):
     Graph = nx.Graph()
@@ -21,8 +23,18 @@ def load_csv(filepath):
             Graph.add_edge(source, target, weight=distance)
     return Graph
 
+
+def Display_Graph(Graph):
+    pos = nx.spring_layout(Graph)
+    nx.draw_networkx(Graph)
+    plt.show()
+    
+    
 filepath = 'data.csv'
 Graph = load_csv(filepath)
+Display_Graph(Graph)
 print('Nodes: ', Graph.nodes())
 print('Edges: ',Graph.edges())
 
+
+    
