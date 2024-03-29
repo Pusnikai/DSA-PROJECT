@@ -4,7 +4,7 @@ Group Project
 Prashanth Baskaran Nallathamby 100784991
 Sangeethan Thevathasan 100867103
 Ayaan Bajwa 100864399
-Abishan Jeyanathan 
+Abishan Jeyanathan 100790172
 '''
 # Importing Required Libraries
 import csv
@@ -14,8 +14,10 @@ import matplotlib.pyplot as plt
 # Reading the CSV file
 def load_csv(filepath):
     Graph = nx.Graph()
+    # Open the CSV File
     with open(filepath, 'r') as file:
         reader = csv.DictReader(file)
+        # Adding nodes to the graph 
         for row in reader:
             source = row['Node']
             target = row['Edge']
@@ -36,6 +38,7 @@ def Display_Graph(Graph,Node_Label):
 # Checking if the Node iterating is a EV station or not
 def IsChargingStation(Graph, stations):
     Node_Label = []
+    # Iterate through each nodes of the graph
     for node in Graph.nodes():
         if node not in stations:
             Node_Label.append('lightgrey')
@@ -45,18 +48,22 @@ def IsChargingStation(Graph, stations):
 
 # Dijkstra's Algorithm Implementation
 def DijkstraRouting(Graph, origin, station):
+    # Creating a dictionary to store the shortest distances from
     Visit = {node: False for node in Graph.nodes()}
     distance = {node:float('inf')for node in Graph.nodes()}
     path = {node:None for node in Graph.nodes()}
     distance[origin] = 0
+    # Loop for finding the shortest paths
     while not Visit[station]:
         minDist = float('inf')
         minNode = None
+        # Finding the next node to visit
         for node in Graph.nodes():
             if not Visit[node] and distance[node] < minDist:
                 minDist = distance[node]
                 minNode = node   
         Visit[minNode] = True
+        # ignore already visited nodes
         for neighbor in Graph.neighbors(minNode):
             if not Visit[neighbor]:
                 newDistance = distance[minNode] + Graph[minNode][neighbor]['weight']
@@ -66,6 +73,7 @@ def DijkstraRouting(Graph, origin, station):
     PathToGoal = []
     TotalDist = [distance[station]]
     actualNode = station
+    # Building the path backwards
     while actualNode != origin:
         PathToGoal.insert(0,actualNode)
         actualNode = path[actualNode]
@@ -80,6 +88,7 @@ def EfficientRoute(Graph,origin,stations):
         print("\nThe shortest route from {} to {}: ".format(origin,station),path)
         print('Total Distance is :',dist)
         optimal.append( (path, dist) )
+    # Returning the Optimal Station with minimum total distance
     optimal.sort(key=lambda x:x[1]) 
     ShortestPath,ShortestDist   = optimal[0]
     print('\nThe Recommended Station Route is : ',ShortestPath)
@@ -94,10 +103,12 @@ def main():
     Display_Graph(Graph,Label)
     origin  = input("\nEnter the current point (Between A to W): ")
     EfficientRoute(Graph,origin,stations)
-    #print('\nNodes: ', Graph.nodes())
-    #print('\nEdges: ',Graph.edges())
-    #print('\nWeight: ',[(u, v, d['weight']) for u, v, d in Graph.edges(data=True)])
-    
-main()
+    """print('\nNodes: ', Graph.nodes())
+    print('\nEdges: ',Graph.edges())
+    print('\nWeight: ',[(u, v, d['weight']) for u, v, d in Graph.edges(data=True)])"""
+
+# Calling the main function
+if __name__ == "__main__":
+    main()
     
     
