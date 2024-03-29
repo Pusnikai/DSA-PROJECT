@@ -99,8 +99,6 @@ def main():
     Display_Graph(Graph,Label)
     origin  = input("\nEnter the current point (Between A to W): ")
     EfficientRoute(Graph,origin,stations)
-   
-    
     #print('\nNodes: ', Graph.nodes())
     #print('\nEdges: ',Graph.edges())
     #print('\nWeight: ',[(u, v, d['weight']) for u, v, d in Graph.edges(data=True)])
