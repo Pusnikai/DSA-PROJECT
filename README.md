@@ -73,5 +73,5 @@ This project aims to facilitate efficient route finding within a network of char
 - [Python Tutorial on File Handling](http://www.pythonforbeginners.com/file-handling/reading-and-writing-files-in-python/)
 - [Dijkstra’s Algorithm]()
 - [Python Tutorial]()
--  [GeeksforGeeks]</s>
+- [GeeksforGeeks]()
 
