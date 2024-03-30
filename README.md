@@ -30,24 +30,12 @@
    - Enter the current point (between A to W) when prompted.
    - The script will display the graph with charging stations highlighted and recommend the most efficient route considering the shortest distance to the stations.
 
-## Code Quality and Documentation
-
-1. **Code Quality:**
-   - Variable and function names: Use meaningful and descriptive names to enhance readability.
-   - Comments: Add comments to explain complex logic, algorithms, or any parts of the code that might not be immediately clear to others.
-   - Error handling: Implement error handling to handle unexpected situations gracefully.
-
-2. **Documentation:**
-   - Add a docstring to each function explaining its purpose, parameters, and return values. This will make it easier for others (and yourself) to understand the code's functionality.
-   - Provide inline comments to explain key sections of the code, especially complex logic or algorithms.
-
-
+- The program will display an interactive graph with
 
 # Efficient Route Finder
 
 This application aims to find the shortest path from a given starting point to each charging station in a network of 23 nodes, and recommend the most efficient route based on distance and other relevant factors.
 
-## Project Details
 
 ### 1. Graph Construction and Data Loading:
 - Load a predefined network of nodes and edges from an external file (get data from the given image).
@@ -58,3 +46,11 @@ This application aims to find the shortest path from a given starting point to e
 
 ### 3. Route Recommendation System:
 - Analyze the computed paths to recommend the most efficient route to a charging station based on total distance.
+
+
+## Project Logs
+1)  Write a Python code that uses NetworkX library for creating a weighted directed graph from a given data file, where each line of the input represents one
+2) Loaded network data into csv based on node path and their neighbours
+3) learning Dijkstra's algorithm, and utulizing to compare different routes between two nodes
+4) Implementing visualisations using NetworkX library for better understanding of the connections within the system
+5) User interface asking for starting node
